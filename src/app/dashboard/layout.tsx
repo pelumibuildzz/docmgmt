@@ -1,11 +1,16 @@
+import Sidenav from "./sidenav";
+
 export default function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      {children}
-    </>
+    <div className="w-screen min-h-screen">
+      <div className="grid grid-cols-9">
+        <Sidenav />
+        <div className="col-span-7">{children}</div>
+      </div>
+    </div>
   );
 }
