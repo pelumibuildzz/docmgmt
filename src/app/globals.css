@@ -7,4 +7,32 @@
   --color-white-tint: #E5EDE5;
   --color-gray: #696F69;
 
+
+  /* Document */
+  --color-doc-all: #A9A935;
+  --color-doc-assigned: #584BAB;
+  --color-doc-due-today: #808000;
+  --color-doc-updated: #008080;
+  --color-doc-archived: #245032;
+  --color-doc-pending: #5555FF;
+  --color-doc-ongoing: #FF541E;
+  --color-doc-complete: #008000;
+  --color-docbg-assigned: #F5F4FF;
+  --color-docbg-due-today: #FFFFE8;
+  --color-docbg-updated: #E3FFFF;
+  --color-docbg-archived: #EFFFF4;
+  --color-docbg-pending: #F1F1FF;
+  --color-docbg-ongoing: #FFEDE8;
+  --color-docbg-complete: #E7F4E7;
+
+  /* Priority */
+  --color-priority-high: #AD2D05;
+  --color-priority-medium: #E2AA08;
+  --color-priority-low: #008000;
+
+  /* Status */
+
+  --color-status-completed: #008000;
+  --color-status-inprogress: #0000FF;
+  --color-status-archived: #002B00;
 }
