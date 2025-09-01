@@ -173,7 +173,7 @@ const Sidenav = () => {
           </Link>
         </li>
         <li>
-          <Link href="/dashboard/teams" className={getLinkClasses("/dashboard/teams")}>
+          <Link href="/dashboard/teams/departments" className={getLinkClasses("/dashboard/teams")}>
             <TeamsIcon className="text-current" />
             <span className="text-[16px]">Teams</span>
           </Link>

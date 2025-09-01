@@ -35,4 +35,5 @@
   --color-status-completed: #008000;
   --color-status-inprogress: #0000FF;
   --color-status-archived: #002B00;
+  --color-status-error: #DF3A07;
 }

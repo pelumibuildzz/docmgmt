@@ -10,7 +10,7 @@ export default function DocmgmtLayout({
 }>) {
   return (
     <div className={`${poppins.className} bg-white w-full flex flex-col min-h-screen`}>
-      <header className="flex px-10 pt-6 pb-4 w-full justify-between items-center border-b border-gray-300">
+      <header className="flex px-10 pt-6 pb-4 w-full justify-between items-center border-b border-gray-300 bg-primary-lighter">
         <h2 className="font-semibold text-[28px]">Doc Management</h2>
         <UserInfo/>
       </header>
