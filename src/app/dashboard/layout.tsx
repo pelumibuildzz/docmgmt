@@ -1,4 +1,4 @@
-import Sidenav from "./sidenav";
+import Sidenav from "@/components/sidenav";
 
 export default function DashboardLayout({
   children,

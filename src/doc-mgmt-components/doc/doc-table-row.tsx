@@ -10,7 +10,7 @@ const DocTableRow = () => {
         <td className="">Priority</td>
         <td className="">Last Updated</td>
         <td className="">Due Date</td>
-        <td className="">Actions</td>
+        <td className="px-2 py-1 bg-primary rounded-xl text-white">Actions</td>
     </tr>
   )
 }

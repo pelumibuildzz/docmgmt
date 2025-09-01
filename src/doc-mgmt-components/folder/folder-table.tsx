@@ -3,7 +3,7 @@ import FolderTableRow from "./folder-table-row"
 const FolderTable = () => {
   return (
     <table className="w-full flex flex-col space-y-6 text-[16px]">
-        <thead className=" text-primary">
+        <thead className=" text-primary font-medium">
             <tr className="flex justify-between rounded-xl p-4 bg-primary-lighter">
                 <th className="">Date Created</th>
                 <th className="">File Name</th>
@@ -13,7 +13,7 @@ const FolderTable = () => {
                 <th className="">Actions</th>
             </tr>
         </thead>
-        <tbody className="space-y-6 text-gray">
+        <tbody className="space-y-6 text-gray font-normal">
             <FolderTableRow />
         </tbody>
     </table>
