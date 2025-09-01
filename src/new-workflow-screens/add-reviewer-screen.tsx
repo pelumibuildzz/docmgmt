@@ -7,7 +7,7 @@ import ReviewerItem from "@/view-workflow-screens/reviewer-item";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
-const EditReviewer = () => {
+const AddReviewerScreen = () => {
   return (
     <div className="w-full min-h-screen">
         <div className="grid grid-cols-9">
@@ -24,12 +24,12 @@ const EditReviewer = () => {
                         <span className="text-[16px] font-medium">Go Back</span>
                     </Link>
 
-                    <h4 className="max-w-3/4 text-[16px] mt-6">To change reviewer&apos;s position on the workflow, drag reviewers from one position to another. Use the remove button to totally remove a reviewer.</h4>
+                    <div className="flex flex-col space-y-2">
+                        <h3 className="font-medium text-[20px]">Step 1 of 2</h3>
+                        <h5 className="text-[16px]">Add name, details, and instructions to new workflow.</h5>
+                    </div>
 
                     <ul className="flex flex-col space-y-3">
-                        <ReviewerItem/>
-                        <ReviewerItem/>
-                        <ReviewerItem/>
                         <li className="flex space-x-[26px]">
                             <div className="flex flex-col space-y-0.5 items-center">
                                 <span className="rounded-full bg-primary text-white w-6 h-6 text-center">
@@ -56,7 +56,7 @@ const EditReviewer = () => {
                         </li>
                     </ul>
                 </main>
-                    <button className="text-white bg-primary rounded-xl font-medium text-[16px] px-4 py-3 w-fit absolute bottom-14 right-14">Save Changes</button>
+                    <button className="text-white bg-primary rounded-xl font-medium text-[16px] px-4 py-3 w-fit absolute bottom-14 right-14">Preview Workflow</button>
             </div>
         </div>
       </div>
@@ -64,4 +64,4 @@ const EditReviewer = () => {
   )
 }
 
-export default EditReviewer
+export default AddReviewerScreen

@@ -91,7 +91,7 @@ const Sidenav = () => {
   };
 
   return (
-    <div className={`col-span-2 px-5 py-10 border-r-[.5px] border-r-gray flex flex-col space-y-8 ${poppins.className}`}>
+    <div className={`col-span-2 px-5 py-10 border-r-[.5px] border-r-gray flex flex-col space-y-8 ${poppins.className} bg-primary-lighter`}>
       <h2 className="h-[26px] flex items-center space-x-2">
         <Image src="/logo/c-logo.png" alt="Logo" width={27} height={26} />
         <Image src="/logo/CmAG.png" alt="Logo" width={45} height={20} />
