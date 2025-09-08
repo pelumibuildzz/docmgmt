@@ -185,7 +185,7 @@ const Sidenav = () => {
           </Link>
         </li>
         <li>
-          <Link href="/dashboard/audit-log" className={getLinkClasses("/dashboard/audit-log")}>
+          <Link href="/dashboard/audit-log/user" className={getLinkClasses("/dashboard/audit-log")}>
             <AuditLogIcon className="text-current" />
             <span className="text-[16px]">Audit Log</span>
           </Link>

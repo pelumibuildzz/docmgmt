@@ -1,5 +1,6 @@
 import DocGrid from "@/doc-mgmt-components/doc/doc-grid"
 import DocTable from "@/doc-mgmt-components/doc/doc-table"
+import FolderTable from "@/doc-mgmt-components/folder/folder-table"
 import { ChevronDown, ChevronLeft, LayoutGrid, List } from "lucide-react"
 import Link from "next/link"
 
@@ -32,7 +33,7 @@ const Docpage = () => {
                 <Link href="/upload-doc" className="px-4 py-2 bg-primary rounded-xl text-white">Upload Document</Link>
             </div>
         </div>
-        <DocGrid />
+        <FolderTable />
     </main>
   )
 }

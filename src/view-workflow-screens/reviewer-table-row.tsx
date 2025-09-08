@@ -1,9 +1,9 @@
 const ReviewerTableRow = () => {
   return (
-    <tr className="p-4 flex justify-between w-full rounded-xl border-gray border-[.5px]">
-        <td className="">01</td>
-        <td className="">Adibogun Pascal</td>
-        <td className="">Reviewer</td>
+    <tr className="p-4 grid grid-cols-6 gap-4 w-full rounded-xl border-gray border-[.5px]">
+        <td className="col-span-2">01</td>
+        <td className="col-span-2">Adibogun Pascal</td>
+        <td className="col-span-2">Reviewer</td>
     </tr>
   )
 }
