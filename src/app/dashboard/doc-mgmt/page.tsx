@@ -33,7 +33,7 @@ const Docpage = () => {
                 <Link href="/upload-doc" className="px-4 py-2 bg-primary rounded-xl text-white">Upload Document</Link>
             </div>
         </div>
-        <FolderTable />
+        <DocTable />
     </main>
   )
 }

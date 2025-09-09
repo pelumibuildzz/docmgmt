@@ -4,17 +4,17 @@ const DocTable = () => {
   return (
     <table className="w-full flex flex-col space-y-6 text-[16px]">
         <thead className=" text-primary">
-            <tr className="grid grid-cols-12 gap-2 rounded-xl p-4 bg-primary-lighter text-left">
-                <th className="col-span-2">Date Created</th>
-                <th className="col-span-1">Doc Name</th>
-                <th className="col-span-1">Doc ID</th>
-                <th className="col-span-1">File Name</th>
-                <th className="col-span-1">File ID</th>
-                <th className="col-span-1">Status</th>
-                <th className="col-span-1">Priority</th>
-                <th className="col-span-2">Last Updated</th>
-                <th className="col-span-1">Due Date</th>
-                <th className="col-span-1">Actions</th>
+            <tr className="flex justify-between gap-2 rounded-xl p-4 bg-primary-lighter text-left">
+                <th className="">Date Created</th>
+                <th className="">Doc Name</th>
+                <th className="">Doc ID</th>
+                <th className="">File Name</th>
+                <th className="">File ID</th>
+                <th className="">Status</th>
+                <th className="">Priority</th>
+                <th className="">Last Updated</th>
+                <th className="">Due Date</th>
+                <th className="">Actions</th>
             </tr>
         </thead>
         <tbody className="space-y-6 text-gray">

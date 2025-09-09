@@ -2,7 +2,7 @@
 import { EllipsisVertical, InfoIcon, MessageCircle, Send } from "lucide-react"
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import DocDropdown from "@/app/file/[documentId]/doc-dropdown";
+import DocDropdown from "@/app/view/doc/[documentId]/doc-dropdown";
 import Image from "next/image";
 
 const ViewFilePage = () => {
