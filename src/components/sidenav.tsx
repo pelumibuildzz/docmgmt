@@ -123,42 +123,37 @@ const Sidenav = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/doc-mgmt/keep-in-view" className={getSubLinkClasses("/dashboard/doc-mgmt/keep-in-view")}>
+                  <Link href="/dashboard/doc-mgmt?filter=keep-in-view" className={getSubLinkClasses("/dashboard/doc-mgmt?filter=keep-in-view")}>
                     <span>Keep in View</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/doc-mgmt/assigned-to-me" className={getSubLinkClasses("/dashboard/doc-mgmt/assigned-to-me")}>
+                  <Link href="/dashboard/doc-mgmt?filter=assigned-to-me" className={getSubLinkClasses("/dashboard/doc-mgmt?filter=assigned-to-me")}>
                     <span>Assigned To Me</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/doc-mgmt/ongoing-review" className={getSubLinkClasses("/dashboard/doc-mgmt/ongoing-review")}>
+                  <Link href="/dashboard/doc-mgmt?filter=ongoing-review" className={getSubLinkClasses("/dashboard/doc-mgmt?filter=ongoing-review")}>
                     <span>Ongoing Review</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/doc-mgmt/document-templates" className={getSubLinkClasses("/dashboard/doc-mgmt/document-templates")}>
-                    <span>Document Templates</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/dashboard/doc-mgmt/due-today" className={getSubLinkClasses("/dashboard/doc-mgmt/due-today")}>
+                  <Link href="/dashboard/doc-mgmt?filter=due-today" className={getSubLinkClasses("/dashboard/doc-mgmt?filter=due-today")}>
                     <span>Due Today</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/doc-mgmt/updated-docs" className={getSubLinkClasses("/dashboard/doc-mgmt/updated-docs")}>
+                  <Link href="/dashboard/doc-mgmt?filter=updated-docs" className={getSubLinkClasses("/dashboard/doc-mgmt?filter=updated-docs")}>
                     <span>Updated Docs</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/doc-mgmt/completed-docs" className={getSubLinkClasses("/dashboard/doc-mgmt/completed-docs")}>
+                  <Link href="/dashboard/doc-mgmt?filter=completed-docs" className={getSubLinkClasses("/dashboard/doc-mgmt?filter=completed-docs")}>
                     <span>Completed Docs</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard/doc-mgmt/archived-docs" className={getSubLinkClasses("/dashboard/doc-mgmt/archived-docs")}>
+                  <Link href="/dashboard/doc-mgmt?filter=archived-docs" className={getSubLinkClasses("/dashboard/doc-mgmt?filter=archived-docs")}>
                     <span>Archived Docs</span>
                   </Link>
                 </li>
