@@ -15,7 +15,7 @@ const FolderGridCell = () => {
                 </div>
             </div>
             <div className="flex items-center">
-                <Link href={`/view-doc/documentId`} className="bg-primary text-white px-2 py-1 rounded-xl"> Open</Link>
+                <button className="bg-primary text-white px-2 py-1 rounded-xl">Open</button>
             </div>
         </div>
         <div className="flex justify-between ">

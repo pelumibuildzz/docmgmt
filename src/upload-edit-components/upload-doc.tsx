@@ -11,6 +11,8 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700
 const UploadDoc = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedFile, setSelectedFile] = useState("");
+  const [isUploadDropdownOpen, setIsUploadDropdownOpen] = useState(false);
+  const [uploadOption, setUploadOption] = useState("Upload");
 
   // Dummy files - replace with actual data from api or state
   const files = [
@@ -18,9 +20,23 @@ const UploadDoc = () => {
     { value: "file2", label: "File 2" }
   ];
 
+  const uploadOptions = [
+    { value: "keep-in-view", label: "Upload and Keep in View" },
+    { value: "upload", label: "Upload to Knowledge Management" }
+  ];
+
   const handleFileSelect = (file: { value: string; label: string }) => {
     setSelectedFile(file.value);
     setIsDropdownOpen(false);
+  };
+
+  const handleUploadOptionSelect = (option: { value: string; label: string }) => {
+    if (option.value === "keep-in-view") {
+      setUploadOption("Keep in View");
+    } else {
+      setUploadOption("Upload");
+    }
+    setIsUploadDropdownOpen(false);
   };
 
   return (
@@ -31,11 +47,33 @@ const UploadDoc = () => {
       </header>
       <main className="w-full py-8 px-6 flex flex-col space-y-2">
         <div className="flex flex-col space-y-6">
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center px-10">
                 <Link href={"/dashboard"} className="flex space-x-4 rounded-xl border-gray border-[.5px] p-2 items-center text-gray">
                     <ChevronLeft className="" width={24} height={24} />
                     <span className="text-[16px] font-medium">Go Back</span>
                 </Link>
+                <div className="relative">
+                    <button 
+                        onClick={() => setIsUploadDropdownOpen(!isUploadDropdownOpen)}
+                        className="p-2 rounded-xl border border-gray-300 bg-white flex space-x-1 items-center"
+                    >
+                        <span className="text-[16px] font-medium">{uploadOption}</span>    
+                        <ChevronDown width={24} height={24} className={`transition-transform ${isUploadDropdownOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {isUploadDropdownOpen && (
+                        <div className="absolute z-10 right-0 w-64 mt-1 bg-white border border-gray-300 rounded-md shadow-lg">
+                            {uploadOptions.map((option) => (
+                                <button
+                                    key={option.value}
+                                    onClick={() => handleUploadOptionSelect(option)}
+                                    className="w-full p-3 text-left hover:bg-gray-50 text-[16px]"
+                                >
+                                    {option.label}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
         <section className="py-8 px-6 flex flex-col space-y-6 w-7/12 text-[16px]">
@@ -84,6 +122,7 @@ const UploadDoc = () => {
                 </button>
             </div>
         </section>
+        <button className="bg-primary text-white py-2 px-4 rounded-md w-fit self-end mr-10">Proceed to Workflow</button>
     </main>
     </div>
   )

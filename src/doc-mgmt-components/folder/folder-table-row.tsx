@@ -6,7 +6,7 @@ const FolderTableRow = () => {
         <td className="col-span-2">File ID</td>
         <td className="col-span-2">No of Document</td>
         <td className="col-span-2">Last Updated</td>
-        <td className="col-span-2 flex justify-start"><span className="px-2 py-1 bg-primary rounded-xl text-white">Actions</span></td>
+        <td className="col-span-2 flex justify-start"><button className="px-2 py-1 bg-primary rounded-xl text-white">open</button></td>
     </tr>
   )
 }
