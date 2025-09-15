@@ -2,8 +2,8 @@ import { ChevronDown, Plus } from 'lucide-react'
 
 const ChangeWorkflowModal = () => {
   return (
-    <div className="absolute top-0 left-0 w-full h-full bg-black text-[16px] opacity-75 flex justify-center items-center">
-      <div className="bg-white w-2/5 rounded-md shadow-md py-14 px-10 flex flex-col space-y-6 border-b-[.5px] border-gray-300">
+    <div className="absolute top-0 left-0 w-full h-full bg-black/70 text-[16px] flex justify-center items-center">
+      <div className="bg-white w-2/5 rounded-xl shadow-md py-14 px-10 flex flex-col space-y-6 border-b-[.5px] border-gray-300">
         <h2 className="font-semibold">Change Workflow</h2>
         
         <div className="relative">

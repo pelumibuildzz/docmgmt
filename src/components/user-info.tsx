@@ -12,7 +12,7 @@ const UserInfo = () => {
         </Link>
         <span className="flex space-x-3 items-center font-medium">
           <UserCircleIcon width={32} height={32} />
-          <span className="text-[14px]">Username</span>
+          <span className="text-[14px]">Adibogun Aminat</span>
         </span>
     </span>
   )

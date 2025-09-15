@@ -1,11 +1,17 @@
+'use client'
 import { ChevronsRight, FileText, X } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 export default function DocumentDetailsLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const router = useRouter()
+  const handleGoBack = () => {
+    router.back()
+  }
   return (
     <div className='flex flex-col min-h-screen w-screen space-y-4'>
         <header className='flex justify-between items-center py-4 px-10 bg-primary-lighter border-b-[.5px] border-gray-300'>
@@ -20,9 +26,9 @@ export default function DocumentDetailsLayout({
                 <ChevronsRight className='text-gray' width={24} height={24}/>
                 <span className='text-[20px] font-medium'>Document Details</span>
             </div>
-            <Link href={"/dashboard/knowledge-management"}>
+            <button onClick={handleGoBack}>
                 <X width={24} height={24} className='text-gray cursor-pointer'/>
-            </Link>
+            </button>
         </header>
         {children}
     </div>

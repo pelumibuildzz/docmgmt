@@ -2,6 +2,15 @@ import React from 'react'
 import AccessMgmtTableRow from '@/access-management-components/access-mgmt-table-row'
 
 const AccessMgmtTable = () => {
+  const dummyUsers = [
+    { id: 1, name: "Aminat Adibogun", email: "adibogun@gmail.com", department: "Finance" },
+    { id: 2, name: "John Smith", email: "john.smith@company.com", department: "IT" },
+    { id: 3, name: "Sarah Johnson", email: "sarah.johnson@company.com", department: "HR" },
+    { id: 4, name: "Michael Brown", email: "michael.brown@company.com", department: "Marketing" },
+    { id: 5, name: "Emily Davis", email: "emily.davis@company.com", department: "Operations" },
+    { id: 6, name: "David Wilson", email: "david.wilson@company.com", department: "Legal" }
+  ];
+
   return (
     <table className="w-full flex flex-col space-y-6 text-[16px]">
         <thead className=" text-primary font-medium">
@@ -14,10 +23,9 @@ const AccessMgmtTable = () => {
             </tr>
         </thead>
         <tbody className="space-y-6 text-gray font-normal">
-            <AccessMgmtTableRow />
-            <AccessMgmtTableRow />
-            <AccessMgmtTableRow />
-            <AccessMgmtTableRow />
+            {dummyUsers.map((user) => (
+              <AccessMgmtTableRow key={user.id} user={user} />
+            ))}
         </tbody>
     </table>
   )

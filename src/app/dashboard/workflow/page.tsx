@@ -11,9 +11,9 @@ const WorkflowDashboardPage = () => {
           </Link>
         </div>
         <WorkflowTable />
-        <Pagination page={1} totalPages={5} 
+        {/* <Pagination page={1} totalPages={5} 
         // changePage={(page) => console.log(page)} 
-        />
+        /> */}
     </main>
   )
 }

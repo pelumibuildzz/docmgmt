@@ -1,8 +1,14 @@
+'use client'
 import MinuteComponent from '@/document-features-components/minute/minute-component'
 import { ChevronsRight, FileText, Image, Paperclip, Plus, Smile, X } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const DocMinutesPage = () => {
+    const router = useRouter()
+    const handleGoBack = () => {
+    router.back()
+  }
   return (
     <div className='flex flex-col min-h-screen w-screen space-y-6'>
         <header className='flex justify-between items-center py-4 px-10 bg-primary-lighter border-b-[.5px] border-gray-300'>
@@ -17,9 +23,9 @@ const DocMinutesPage = () => {
                 <ChevronsRight className='text-gray' width={24} height={24}/>
                 <span className='text-[20px] font-medium'>Document Minutes</span>
             </div>
-            <Link href={"/dashboard/knowledge-management"}>
+            <button onClick={handleGoBack}>
                 <X width={24} height={24} className='text-gray cursor-pointer'/>
-            </Link>
+            </button>
         </header>
         <div className='px-[120px] flex flex-col space-y-9 w-9/12'>
             <button className='w-fit flex space-x-2 text-primary items-center border border-gray-300 py-4 px-3 rounded-lg self-end'>

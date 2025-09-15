@@ -1,0 +1,35 @@
+import { Check } from 'lucide-react'
+
+interface NewMemberSuccessModalProps {
+  onBackToTeams: () => void;
+  onAddNewMember: () => void;
+}
+
+const NewMemberSuccessModal = ({ onBackToTeams, onAddNewMember }: NewMemberSuccessModalProps) => {
+  return (
+    <div className="absolute top-0 left-0 w-full h-full bg-black/70 text-[16px] flex justify-center items-center z-50">
+      <div className="bg-white w-2/5 rounded-xl shadow-md p-10 flex flex-col space-y-6 border-b-[.5px] justify-center items-center border-gray-300">
+        <div className='flex flex-col justify-center items-center w-fit h-fit rounded-full bg-primary p-4'>
+            <Check className="text-white" width={56} height={56} />
+        </div>
+        <span className="text-[14px] text-gray">You have successfully added a new member.</span>
+        <div className='flex space-x-3'>
+            <button 
+              onClick={onBackToTeams}
+              className='py-2 px-4 rounded-md w-fit border border-gray-300 hover:bg-gray-50 transition-colors'
+            >
+                Back to Teams
+            </button>
+            <button 
+              onClick={onAddNewMember}
+              className='bg-primary text-white py-2 px-4 rounded-md w-fit hover:bg-primary/90 transition-colors'
+            >
+                Add New Member
+            </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default NewMemberSuccessModal

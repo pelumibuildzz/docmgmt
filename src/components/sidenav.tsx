@@ -4,7 +4,7 @@ import Image from "next/image"
 import { Poppins } from "next/font/google"
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
@@ -66,6 +66,7 @@ const WorkflowIcon = ({ className }: { className?: string }) => (
 const Sidenav = () => {
   const [isDocMgmtOpen, setIsDocMgmtOpen] = useState(false);
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const toggleDocMgmt = () => {
     setIsDocMgmtOpen(!isDocMgmtOpen);
@@ -73,11 +74,21 @@ const Sidenav = () => {
 
   const isActive = (path: string) => pathname === path;
   const isDocMgmtActive = () => pathname.startsWith('/dashboard/doc-mgmt');
+  const isTeamsActive = () => pathname.startsWith('/dashboard/teams');
+  const isAuditLogActive = () => pathname.startsWith('/dashboard/audit-log');
 
   const getLinkClasses = (path: string) => {
     const baseClasses = "cursor-pointer h-12 px-2 py-3 flex space-x-2 rounded-xl";
     const activeClasses = "text-primary bg-primary-light";
     const inactiveClasses = "text-gray hover:text-primary hover:bg-primary-light";
+    
+    // Special handling for teams and audit-log routes
+    if (path === "/dashboard/teams/departments" && isTeamsActive()) {
+      return `${baseClasses} ${activeClasses}`;
+    }
+    if (path === "/dashboard/audit-log/user" && isAuditLogActive()) {
+      return `${baseClasses} ${activeClasses}`;
+    }
     
     return `${baseClasses} ${isActive(path) ? activeClasses : inactiveClasses}`;
   };
@@ -87,11 +98,19 @@ const Sidenav = () => {
     const activeClasses = "text-primary";
     const inactiveClasses = "text-gray hover:text-primary";
     
-    return `${baseClasses} ${isActive(path) ? activeClasses : inactiveClasses}`;
+    // Extract filter parameter from the path
+    const urlObj = new URL(path, window.location.origin);
+    const pathFilter = urlObj.searchParams.get('filter');
+    const currentFilter = searchParams.get('filter');
+    
+    // Check if this is the current filter and path combination
+    const isCurrentFilter = pathname === urlObj.pathname && pathFilter === currentFilter;
+    
+    return `${baseClasses} ${isCurrentFilter ? activeClasses : inactiveClasses}`;
   };
 
   return (
-    <div className={`col-span-2 px-5 py-10 border-r-[.5px] border-r-gray flex flex-col space-y-8 ${poppins.className} bg-primary-lighter min-h-screen`}>
+    <div className={`col-span-2 px-5 py-10 border-r-[.5px] border-r-gray-300 flex flex-col space-y-8 ${poppins.className} bg-primary-lighter min-h-screen`}>
       <h2 className="h-[26px] flex items-center space-x-2">
         <Image src="/logo/c-logo.png" alt="Logo" width={27} height={26} />
         <Image src="/logo/CmAG.png" alt="Logo" width={45} height={20} />
@@ -168,7 +187,7 @@ const Sidenav = () => {
           </Link>
         </li>
         <li>
-          <Link href="/dashboard/teams/departments" className={getLinkClasses("/dashboard/teams")}>
+          <Link href="/dashboard/teams/departments" className={getLinkClasses("/dashboard/teams/departments")}>
             <TeamsIcon className="text-current" />
             <span className="text-[16px]">Teams</span>
           </Link>
@@ -180,7 +199,7 @@ const Sidenav = () => {
           </Link>
         </li>
         <li>
-          <Link href="/dashboard/audit-log/user" className={getLinkClasses("/dashboard/audit-log")}>
+          <Link href="/dashboard/audit-log/user" className={getLinkClasses("/dashboard/audit-log/user") || getLinkClasses("/dashboard/audit-log/documents")}>
             <AuditLogIcon className="text-current" />
             <span className="text-[16px]">Audit Log</span>
           </Link>

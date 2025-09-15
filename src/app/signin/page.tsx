@@ -4,6 +4,7 @@ import {Poppins} from "next/font/google";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import PasswordInput from "../../components/password-input";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
@@ -42,23 +43,24 @@ const LogIn = () => {
                 <input 
                   type="email" 
                   placeholder="Email" 
-                  className="border border-gray p-4 rounded-xl h-[56px]"
+                  className="border border-gray-300 p-4 rounded-xl h-[56px]"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
               <div className="flex flex-col space-y-3">
-                <label className={`${poppins.className} text-[20px] text-black`}>Password</label>
-                <input 
-                  type="password" 
-                  placeholder="Password" 
-                  className="border border-gray p-4 rounded-xl h-[56px]"
+                <PasswordInput
+                  label="Password"
+                  labelClassName={`${poppins.className} text-[20px] text-black`}
+                  placeholder="Password"
+                  className="border border-gray-300 p-4 rounded-xl h-[56px] w-screen"
+                  containerClassName="flex flex-col space-y-3"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-                <div className={`${poppins.className} text-[16px] text-primary text-right`}><Link href="/forgot-password">Forgot your Password?</Link> <span className="text-black">or</span> <Link href="/signup" className="text-primary">Sign Up</Link></div>
+                <div className={`${poppins.className} text-[16px] text-primary text-right`}><Link href="/forgot-password">Forgot your Password?</Link> <span className="text-black">or</span> <Link href="/signin-new" className="text-primary">Log in as new member</Link></div>
               </div>
                 <button type="submit" className={`${poppins.className} bg-primary text-[20px] text-white p-4 h-[56px] rounded-xl`}>Sign In</button>
             </form>

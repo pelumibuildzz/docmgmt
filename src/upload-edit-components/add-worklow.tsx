@@ -2,17 +2,33 @@
 
 import Link from "next/link"
 import { Poppins } from "next/font/google";
-import { ChevronLeft, Plus, ChevronDown, CircleDot, Info, Dot, X } from "lucide-react"
+import { Plus, ChevronDown, CircleDot, Info, Dot, X, ChevronLeft } from "lucide-react"
+import GoBackButton from "@/components/go-back-button";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { UploadData } from "@/app/upload-doc/page";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
-const AddWorkflow = () => {
+type AddWorkflowProps = {
+  onComplete: (data: Partial<UploadData>) => void
+  onGoBack: () => void
+  initialData: UploadData
+}
+
+const AddWorkflow = ({ onComplete, onGoBack, initialData }: AddWorkflowProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedworkflow, setSelectedworkflow] = useState("");
+  const [selectedworkflow, setSelectedworkflow] = useState(initialData.workflow);
   const [isPriorityDropdownOpen, setIsPriorityDropdownOpen] = useState(false);
-  const [selectedPriority, setSelectedPriority] = useState("");
+  const [selectedPriority, setSelectedPriority] = useState(initialData.priority);
+  const [canProceed, setCanProceed] = useState(false);
+
+  // Check if all required fields are filled
+  useEffect(() => {
+    const hasPriority = selectedPriority !== "";
+    const hasWorkflow = selectedworkflow !== "";
+    setCanProceed(hasPriority && hasWorkflow);
+  }, [selectedPriority, selectedworkflow]);
 
   // Priority options with colors
   const priorities = [
@@ -37,6 +53,15 @@ const AddWorkflow = () => {
     setIsDropdownOpen(false);
   };
 
+  const handleProceedToReview = () => {
+    if (canProceed) {
+      onComplete({
+        priority: selectedPriority,
+        workflow: selectedworkflow
+      });
+    }
+  };
+
   return (
     <div className={`${poppins.className} bg-white w-full flex flex-col min-h-screen overflow-auto`}>
       <header className="flex px-10 pt-6 pb-4 w-full justify-between items-center border-b border-gray-300 bg-primary-lighter">
@@ -46,10 +71,13 @@ const AddWorkflow = () => {
       <main className="w-full py-8 px-6 flex flex-col space-y-2">
         <div className="flex flex-col space-y-6">
             <div className="flex justify-between">
-                <Link href={"/dashboard"} className="flex space-x-4 rounded-xl border-gray border-[.5px] p-2 items-center text-gray">
+                <button 
+                  onClick={onGoBack}
+                  className="flex space-x-4 rounded-xl border-gray-300 border-[.5px] p-2 items-center text-gray w-fit cursor-pointer min-w-max"
+                >
                     <ChevronLeft className="" width={24} height={24} />
                     <span className="text-[16px] font-medium">Go Back</span>
-                </Link>
+                </button>
             </div>
         </div>
         <section className="py-8 px-6 flex flex-col space-y-6 w-7/12 text-[16px]">
@@ -58,15 +86,20 @@ const AddWorkflow = () => {
                 <div className="relative">
                     <button 
                         onClick={() => setIsPriorityDropdownOpen(!isPriorityDropdownOpen)}
-                        className="w-full p-4 rounded-md border border-gray bg-white text-left flex items-center justify-between"
+                        className="w-full p-4 rounded-md border border-gray-300 bg-white text-left flex items-center justify-between"
                     >
-                        <span className={selectedPriority ? "text-black" : "text-gray-500"}>
-                            {selectedPriority ? priorities.find(p => p.value === selectedPriority)?.label : "Select priority level"}
-                        </span>
+                        {selectedPriority ? (
+                            <div className="flex items-center space-x-3">
+                                <CircleDot className={`w-5 h-5 ${priorities.find(p => p.value === selectedPriority)?.color}`} />
+                                <span className="text-black">{priorities.find(p => p.value === selectedPriority)?.label}</span>
+                            </div>
+                        ) : (
+                            <span className="text-gray-500">Select priority level</span>
+                        )}
                         <ChevronDown className={`w-5 h-5 transition-transform ${isPriorityDropdownOpen ? 'rotate-180' : ''}`} />
                     </button>
                     {isPriorityDropdownOpen && (
-                        <div className="absolute z-10 w-full mt-1 bg-white border border-gray rounded-md shadow-lg">
+                        <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg">
                             {priorities.map((priority) => (
                                 <button
                                     key={priority.value}
@@ -94,15 +127,27 @@ const AddWorkflow = () => {
                 <div className="relative">
                     <button 
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                        className="w-full p-4 rounded-md border border-gray bg-white text-left flex items-center justify-between"
+                        className="w-full p-4 rounded-md border border-gray-300 bg-white text-left flex items-center justify-between"
                     >
-                        <span className={selectedworkflow ? "text-black" : "text-gray-500"}>
-                            {selectedworkflow ? workflows.find(f => f.value === selectedworkflow)?.label : "Search and select workflow names"}
-                        </span>
+                        {selectedworkflow ? (
+                            <div className="flex items-center space-x-4">
+                                <Image src="/upload/wkflow.png" alt="Workflow" width={24} height={24} />
+                                <div className="flex flex-col space-y-0.5">
+                                    <span className="font-medium text-black">{workflows.find(f => f.value === selectedworkflow)?.label}</span>
+                                    <div className="text-gray flex space-x-0.5 items-center">
+                                        <span className="text-gray">Created by: Abidogun Aminat</span>
+                                        <Dot className="text-gray" width={24} height={24} />
+                                        <span className="text-gray">No of Reviewers: 8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <span className="text-gray-500">Add exsisting workflow</span>
+                        )}
                         <ChevronDown className={`w-5 h-5 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
                     </button>
                     {isDropdownOpen && (
-                        <div className="absolute z-10 w-full mt-1 bg-white border border-gray rounded-md shadow-lg">
+                        <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg">
                             {workflows.map((workflow) => (
                                 <button
                                     key={workflow.value}
@@ -123,13 +168,32 @@ const AddWorkflow = () => {
                         </div>
                     )}
                 </div>
-                <button className="flex space-x-2 text-primary">
+                <Link href="/workflow/new" className="flex space-x-2 text-primary">
                   <Plus className="" width={24} height={24} />
                   <span>New Workflow</span>
                   {/* Change to Change Workflow when a workflow is selected */}
-                </button>
+                </Link>
             </div>
         </section>
+        
+        {/* Validation message */}
+        {!canProceed && (
+          <div className="px-10 text-red-500 text-sm">
+            Please select priority level and workflow before proceeding.
+          </div>
+        )}
+        
+        <button 
+          onClick={handleProceedToReview}
+          disabled={!canProceed}
+          className={`py-2 px-4 rounded-md w-fit self-end mr-10 transition-colors ${
+            canProceed 
+              ? 'bg-primary text-white hover:bg-primary-darker cursor-pointer' 
+              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+          }`}
+        >
+          Proceed to Review
+        </button>
     </main>
     </div>
   )

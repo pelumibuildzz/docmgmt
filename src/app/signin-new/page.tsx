@@ -4,12 +4,15 @@ import {Poppins} from "next/font/google";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import NewPassword from "../../signup-screens/new-password";
+import PasswordInput from "../../components/password-input";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
-const Signup = () => {
+const LogInAsNewMember = () => {
   const [currentStep, setCurrentStep] = useState("email"); // "email" or "password"
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const router = useRouter();
 
   const handleEmailSubmit = (e: React.FormEvent) => {
@@ -42,7 +45,7 @@ const Signup = () => {
                 <Image src="/logo/CmAG.png" alt="Logo" width={45} height={20} />
             </div>
             <div className="flex flex-col space-y-3">
-                <h2 className={`${poppins.className} text-[36px] text-black`}>Sign Up</h2>
+                <h2 className={`${poppins.className} text-[36px] text-black`}>Sign In</h2>
                 <h4 className={`${poppins.className} text-[16px] text-gray`}>Provide your email to sign up for an account.</h4>
             </div>
             <form className="flex flex-col space-y-4 w-[500px]" onSubmit={handleEmailSubmit}>
@@ -51,12 +54,24 @@ const Signup = () => {
                     <input 
                     type="email" 
                     placeholder="Email" 
-                    className="border border-gray p-4 rounded-xl h-[56px]"
+                    className="border border-gray-300 p-4 rounded-xl h-[56px]"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     />
                 </div>
+                <div className="flex flex-col space-y-3">
+                <PasswordInput
+                  label="Password"
+                  labelClassName={`${poppins.className} text-[20px] text-black`}
+                  placeholder="Password"
+                  className="border border-gray-300 p-4 rounded-xl h-[56px]"
+                  containerClassName="flex flex-col space-y-3"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
                 <button type="submit" className={`${poppins.className} bg-primary text-[20px] text-white p-4 h-[56px] rounded-xl`}>Sign Up</button>
             </form>
         </div>
@@ -65,4 +80,4 @@ const Signup = () => {
   )
 }
 
-export default Signup;
+export default LogInAsNewMember;

@@ -1,5 +1,15 @@
 import DepartmentTableRow from "@/teams-components/department/departments-table-row"
+
 const DepartmentTable = () => {
+  const dummyDepartments = [
+    { id: 1, serialNumber: "01", name: "Adibogun", department: "Finance" },
+    { id: 2, serialNumber: "02", name: "Smith", department: "Information Technology" },
+    { id: 3, serialNumber: "03", name: "Johnson", department: "Human Resources" },
+    { id: 4, serialNumber: "04", name: "Brown", department: "Marketing" },
+    { id: 5, serialNumber: "05", name: "Davis", department: "Operations" },
+    { id: 6, serialNumber: "06", name: "Wilson", department: "Legal & Compliance" }
+  ];
+
   return (
     <table className="w-full flex flex-col space-y-6 text-[16px]">
         <thead className=" text-primary">
@@ -11,7 +21,9 @@ const DepartmentTable = () => {
             </tr>
         </thead>
         <tbody className="space-y-6 text-gray">
-            <DepartmentTableRow />
+            {dummyDepartments.map((dept) => (
+              <DepartmentTableRow key={dept.id} department={dept} />
+            ))}
         </tbody>
     </table>
   )

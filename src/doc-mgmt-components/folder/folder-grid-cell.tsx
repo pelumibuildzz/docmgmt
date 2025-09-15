@@ -1,8 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
-import DocGridCell from "../doc/doc-grid-cell"
 
-const FolderGridCell = () => {
+interface FolderGridCellProps {
+  onOpenModal: () => void
+}
+
+const FolderGridCell = ({ onOpenModal }: FolderGridCellProps) => {
   return (
     <div className="p-4 flex flex-col space-y-[22px] rounded-xl col-span-1 shadow-md">
         {/* Placeholder for future grid cell implementation */}
@@ -15,7 +18,12 @@ const FolderGridCell = () => {
                 </div>
             </div>
             <div className="flex items-center">
-                <button className="bg-primary text-white px-2 py-1 rounded-xl">Open</button>
+                <button 
+                    className="bg-primary text-white px-2 py-1 rounded-xl"
+                    onClick={onOpenModal}
+                >
+                    Open
+                </button>
             </div>
         </div>
         <div className="flex justify-between ">
@@ -32,4 +40,4 @@ const FolderGridCell = () => {
   )
 }
 
-export default DocGridCell
+export default FolderGridCell

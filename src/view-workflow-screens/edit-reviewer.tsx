@@ -1,7 +1,7 @@
 import { Poppins } from "next/font/google";
 import UserInfo from "@/components/user-info";
-import Link from "next/link";
-import {  ChevronDown, ChevronLeft, Plus } from "lucide-react";
+import GoBackButton from "@/components/go-back-button";
+import {  ChevronDown, Plus } from "lucide-react";
 import RecentInteractSidebar from "@/view-workflow-screens/recent-interact-sidebar";
 import ReviewerItem from "@/view-workflow-screens/reviewer-item";
 
@@ -19,10 +19,7 @@ const EditReviewer = () => {
                     <UserInfo/>
                 </header>
                 <main className="w-full p-6 flex flex-col space-y-11 max-w-[900px]">
-                    <Link href={"/dashboard"} className="flex space-x-4 rounded-xl border-gray border-[.5px] p-2 items-center text-gray w-fit">
-                        <ChevronLeft className="" width={24} height={24} />
-                        <span className="text-[16px] font-medium">Go Back</span>
-                    </Link>
+                    <GoBackButton />
 
                     <h4 className="max-w-3/4 text-[16px] mt-6">To change reviewer&apos;s position on the workflow, drag reviewers from one position to another. Use the remove button to totally remove a reviewer.</h4>
 

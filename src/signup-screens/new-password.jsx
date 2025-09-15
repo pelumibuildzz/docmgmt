@@ -3,13 +3,14 @@ import Image from "next/image";
 import {Poppins} from "next/font/google";
 import { Check } from "lucide-react";
 import { useState } from "react";
+import PasswordInput from "../components/password-input";
 
 const poppins = Poppins({ 
     subsets: ["latin"], 
     weight: ["400", "500", "600", "700"] 
 });
 
-const NewPassword = ({ onContinue }) => {
+const NewPassword = ({ onContinue }: { onContinue?: () => void }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -64,7 +65,7 @@ const NewPassword = ({ onContinue }) => {
                 <div className="flex flex-col space-y-3">
                     <h4 className={`${poppins.className} text-[16px] font-medium text-black`}>New Password</h4>
                     <input 
-                        className="border border-gray p-4 w-full rounded-lg" 
+                        className="border border-gray-300 p-4 w-full rounded-lg" 
                         type="password" 
                         placeholder="Enter your new password"
                         value={password}
@@ -75,7 +76,7 @@ const NewPassword = ({ onContinue }) => {
                 <div className="flex flex-col space-y-3">
                     <h4 className={`${poppins.className} text-[16px] font-medium text-black`}>Confirm Password</h4>
                     <input 
-                        className="border border-gray p-4 w-full rounded-lg" 
+                        className="border border-gray-300 p-4 w-full rounded-lg" 
                         type="password" 
                         placeholder="Confirm your new password"
                         value={confirmPassword}

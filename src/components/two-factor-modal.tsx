@@ -1,8 +1,12 @@
 import { Check, X } from 'lucide-react'
 import React, { useState, useRef } from 'react'
-import Link from 'next/link'
 
-const TwoFactorModal = () => {
+interface TwoFactorModalProps {
+  onCancel: () => void;
+  onContinue: () => void;
+}
+
+const TwoFactorModal = ({ onCancel, onContinue }: TwoFactorModalProps) => {
   const [codes, setCodes] = useState(['', '', '', '', '', '']);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
@@ -45,9 +49,9 @@ const TwoFactorModal = () => {
   };
 
   return (
-    <div className="absolute top-0 left-0 w-full h-full bg-black text-[16px] opacity-75 flex justify-center items-center">
+    <div className="absolute top-0 left-0 w-full h-full bg-black/75 text-[16px] flex justify-center items-center z-50">
       <div className="bg-white w-2/5 rounded-md shadow-md p-8 flex flex-col space-y-6">
-        <X className="text-gray-500 self-end cursor-pointer" width={24} height={24} />
+        <X onClick={onCancel} className="text-gray-500 self-end cursor-pointer" width={24} height={24} />
         <span className='text-center'>Please enter your six digit 2FA code from your Google Authenticator</span>
         
         <div className="flex justify-center space-x-3">
@@ -68,16 +72,17 @@ const TwoFactorModal = () => {
           ))}
         </div>
         
-        <Link 
-          href={"/dashboard"} 
+        <button 
+          onClick={onContinue}
           className={`p-4 rounded-md text-center transition-colors ${
             codes.every(code => code !== '') 
               ? 'bg-primary text-white hover:bg-primary/90' 
-              : 'bg-gray-300 text-gray-500 cursor-not-allowed pointer-events-none'
+              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
           }`}
+          disabled={!codes.every(code => code !== '')}
         >
           Continue
-        </Link>
+        </button>
       </div>
     </div>
   )
