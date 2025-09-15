@@ -18,6 +18,7 @@ const FilterDropdown = ({ onFilterChange }: FilterDropdownProps) => {
     { value: "date-received", label: "Date Received", icon: CalendarCheck },
     { value: "status", label: "Status", icon: GitPullRequestArrow }
   ];
+  selectedFilter;
 
   const subMenuOptions = {
     priority: [

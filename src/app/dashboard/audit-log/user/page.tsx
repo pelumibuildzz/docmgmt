@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link"
-import { ChevronDown } from "lucide-react"
 import UserAuditTable from "@/audit-log-components/user/user-audit-table"
 import UserAuditLogModal from "@/audit-log-components/user/user-auditlog-modal"
 import { useState } from "react";

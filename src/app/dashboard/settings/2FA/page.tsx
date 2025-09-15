@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation"
 import { CircleCheck } from "lucide-react"
 import { useState } from "react"
+import Image from "next/image"
 import TwoFactorSuccessModal from "./two-factor-success-modal"
 
 const TwoFactorAuthenticationPage = () => {
@@ -49,9 +50,9 @@ const TwoFactorAuthenticationPage = () => {
             <div className="flex flex-col space-y-2">
                 <h3 className="text-[16px] font-medium">Step 2</h3>
                 <span className="text-[14px] text-gray ">Scan the QR-code below with your QR-scanner on your mobile phone or web authenticator to pair.</span>
-                <span className="text-[14px] text-gray ">Once paired, save us under a name you'll remember.</span>
+                <span className="text-[14px] text-gray ">Once paired, save us under a name you&apos;ll remember.</span>
                 <div className="w-1/3 h-1/3 my-4 flex justify-center items-center p-7">
-                    <img src="/path/to/qr-code.png" alt="QR Code" className="w-full h-full object-contain" />
+                    <Image src="/qr-code.png" width={168} height={168} alt="QR Code" className="object-contain" />
                 </div>
                 <span className="text-[14px] text-gray ">Enter this code “4567898YTHJJJS” on your authenticator if your device is unable to scan code. Copy Code</span>
             </div>

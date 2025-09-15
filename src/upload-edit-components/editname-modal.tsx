@@ -1,6 +1,6 @@
 import { X } from 'lucide-react'
 import { useState } from 'react';
-
+import Image from 'next/image';
 interface EditNameModalProps {
   currentName?: string;
   onSave?: (newName: string) => void;
@@ -32,7 +32,7 @@ const EditNameModal = ({ currentName = "", onSave, onClose }: EditNameModalProps
       >
         <h2>Edit Document Name</h2>
         <div className="relative flex items-center w-full">
-          <img src="/upload/file.png" alt="File" className="w-6 h-6 absolute left-3" />
+          <Image src="/upload/file.png" alt="File" width={24} height={24} className=" absolute left-3" />
           <input
             type="text"
             value={newName}

@@ -1,6 +1,6 @@
 'use client'
 
-import { ChevronLeft, ChevronRight, Dot, Search, X } from "lucide-react"
+import { Dot, Search, X } from "lucide-react"
 import { useState } from "react"
 import { useWorkflow, Reviewer } from "@/context/workflow-context"
 

@@ -21,7 +21,7 @@ const UserAuditLogModal = ({ isOpen, onClose }: UserAuditLogModalProps) => {
         </div>
         <div className="w-full flex justify-between">
             <h2 className="font-medium">Action</h2>
-            <h3>Revoked “Abidogun Aminat" member access</h3>
+            <h3>Revoked &quot;Abidogun&quot; member access</h3>
         </div>
         <div className="w-full flex justify-between">
             <h2 className="font-medium">Department</h2>

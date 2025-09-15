@@ -21,7 +21,7 @@ const AllDocsTableRow = ({ doc }: AllDocsTableRowProps) => {
         <td className="col-span-1">{doc.docId}</td>
         <td className="col-span-3">{doc.fileName}</td>
         <td className="col-span-2">{doc.fileId}</td>
-        <td className="col-span-2 flex justify-start"><Link href={`/file/${doc.id}`} className="px-2 py-1 bg-primary rounded-xl text-white">view</Link></td>
+        <td className="col-span-2 flex justify-start"><Link href={`/view/doc/${doc.id}`} className="px-2 py-1 bg-primary rounded-xl text-white">view</Link></td>
     </tr>
   )
 }

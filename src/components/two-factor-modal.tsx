@@ -1,4 +1,4 @@
-import { Check, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import React, { useState, useRef } from 'react'
 
 interface TwoFactorModalProps {

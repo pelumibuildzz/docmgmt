@@ -4,10 +4,12 @@ import GoBackButton from "@/components/go-back-button";
 import {  ChevronDown, Plus } from "lucide-react";
 import RecentInteractSidebar from "@/view-workflow-screens/recent-interact-sidebar";
 import ReviewerItem from "@/view-workflow-screens/reviewer-item";
+import { useWorkflow } from "@/context/workflow-context";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 const EditReviewer = () => {
+  const { workflowData } = useWorkflow();
   return (
     <div className="w-full min-h-screen">
         <div className="grid grid-cols-9">
@@ -24,9 +26,13 @@ const EditReviewer = () => {
                     <h4 className="max-w-3/4 text-[16px] mt-6">To change reviewer&apos;s position on the workflow, drag reviewers from one position to another. Use the remove button to totally remove a reviewer.</h4>
 
                     <ul className="flex flex-col space-y-3">
-                        <ReviewerItem/>
-                        <ReviewerItem/>
-                        <ReviewerItem/>
+                        {workflowData.reviewers.map((reviewer, index) => (
+                            <ReviewerItem 
+                                key={reviewer.id} 
+                                reviewer={reviewer} 
+                                stepNumber={index + 1} 
+                            />
+                        ))}
                         <li className="flex space-x-[26px]">
                             <div className="flex flex-col space-y-0.5 items-center">
                                 <span className="rounded-full bg-primary text-white w-6 h-6 text-center">

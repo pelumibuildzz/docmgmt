@@ -1,4 +1,3 @@
-import EditReviewer from "@/view-workflow-screens/edit-reviewer"
 import ViewWorkflow from "@/view-workflow-screens/view-workflow"
 
 const ViewEditWorkflowPage = () => {

@@ -1,6 +1,5 @@
 'use client'
 import { ChevronsRight, FileText, X } from 'lucide-react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 export default function DocumentDetailsLayout({

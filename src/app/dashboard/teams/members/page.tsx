@@ -1,6 +1,5 @@
 import { Poppins } from "next/font/google";
 import UserInfo from "@/components/user-info";
-import { ChevronDown } from "lucide-react"
 import Link from "next/link"
 import MembersTable from "@/teams-components/members/members-table";
 

@@ -2,7 +2,6 @@
 
 import { Poppins } from "next/font/google";
 import UserInfo from "@/components/user-info";
-import { ChevronDown } from "lucide-react"
 import Link from "next/link"
 import DepartmentTable from "@/teams-components/department/department-table";
 import NewDepartmentModal from "@/teams-components/department/new-department-modal";

@@ -1,10 +1,5 @@
 import { Document } from '@/types/document';
 
-// Helper function to get random date within a range
-const getRandomDate = (start: Date, end: Date): string => {
-  const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-  return date.toISOString().split('T')[0];
-};
 
 // Helper function to get today's date
 const getToday = (): string => {

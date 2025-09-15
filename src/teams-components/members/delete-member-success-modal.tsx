@@ -9,7 +9,7 @@ const DeleteMemberSuccessModal = ({ onClose } :{ onClose: () => void }) => {
         <div className='flex flex-col justify-center items-center w-fit h-fit rounded-full bg-primary p-4'>
             <Check className="text-white" width={56} height={56} />
         </div>
-        <span className="text-[14px] text-gray">You have successfully deleted "Adibogun Aminat" member access.</span>
+        <span className="text-[14px] text-gray">You have successfully deleted &quot;Adibogun Aminat&quot; member access.</span>
         <div className='flex justify-center'>
             <button onClick={onClose} className='py-2 px-4 rounded-md w-fit border border-gray-300 hover:bg-gray-50 transition-colors'>
                 Back to Teams

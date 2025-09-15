@@ -29,7 +29,6 @@ const FolderTable = () => {
               <FolderTableRow onOpenModal={handleOpenModal} />
               <FolderTableRow onOpenModal={handleOpenModal} />
               <FolderTableRow onOpenModal={handleOpenModal} />
-              <FolderTableRow onOpenModal={handleOpenModal} />
           </tbody>
       </table>
       <FileDetailsModal isOpen={isModalOpen} onClose={handleCloseModal} />

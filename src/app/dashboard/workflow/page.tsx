@@ -1,6 +1,5 @@
 import WorkflowTable from "@/workflow-components/workflow-table"
 import Link from "next/link"
-import Pagination from "@/components/pagination"  
 
 const WorkflowDashboardPage = () => {
   return (

@@ -3,7 +3,6 @@
 import Link from "next/link"
 import { Poppins } from "next/font/google";
 import { Plus, ChevronDown, CircleDot, Info, Dot, X, ChevronLeft } from "lucide-react"
-import GoBackButton from "@/components/go-back-button";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { UploadData } from "@/app/upload-doc/page";
