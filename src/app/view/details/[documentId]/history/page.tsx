@@ -1,4 +1,4 @@
-import DocHistoryTable from '@/document-features-components/details/doc-history-table'
+import DocHistoryTable from '@/modules/document-features-components/details/doc-history-table'
 import Link from 'next/link'
 
 const DocHistoryPage = () => {

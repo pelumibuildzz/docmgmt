@@ -4,8 +4,8 @@ import { Poppins } from "next/font/google";
 import { useState } from "react";
 import UserInfo from "@/components/user-info";
 import Link  from "next/link";
-import AllDocsTable from "@/knowledge-management-components/all-docs-table";
-import MyDocsTable from "@/knowledge-management-components/my-docs-table";
+import AllDocsTable from "@/modules/knowledge-management-components/all-docs-table";
+import MyDocsTable from "@/modules/knowledge-management-components/my-docs-table";
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 // Restricted and Requires 2FA to access

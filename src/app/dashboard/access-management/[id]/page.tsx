@@ -3,8 +3,8 @@
 import { Poppins } from "next/font/google";
 import UserInfo from "@/components/user-info";
 import { ChevronsRight } from "lucide-react";
-import UserAccessTable from "@/access-management-components/user/user-access-table";
-import UpdateAccessSuccessModal from "@/access-management-components/user/update-access-success modal";
+import UserAccessTable from "@/modules/access-management-components/user/user-access-table";
+import UpdateAccessSuccessModal from "@/modules/access-management-components/user/update-access-success modal";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 

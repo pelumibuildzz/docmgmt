@@ -3,9 +3,9 @@
 import { Poppins } from "next/font/google";
 import UserInfo from "@/components/user-info";
 import Link from "next/link"
-import DepartmentTable from "@/teams-components/department/department-table";
-import NewDepartmentModal from "@/teams-components/department/new-department-modal";
-import NewDepartmentSuccessModal from "@/teams-components/department/new-department-success-modal";
+import DepartmentTable from "@/modules/teams-components/department/department-table";
+import NewDepartmentModal from "@/modules/teams-components/department/new-department-modal";
+import NewDepartmentSuccessModal from "@/modules/teams-components/department/new-department-success-modal";
 import { useState } from "react";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });

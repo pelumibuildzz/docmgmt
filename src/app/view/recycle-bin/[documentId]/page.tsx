@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import RestoreDocModal from '@/recycle-bin-components/restore-modal'
+import RestoreDocModal from '@/modules/recycle-bin-components/restore-modal'
 import TwoFactorModal from '@/components/two-factor-modal'
-import RestoreSuccessModal from '@/recycle-bin-components/restore-success-modal'
-import DeletePermanentModal from '@/recycle-bin-components/delete-permanent-modal'
-import DeletePermanentSuccessModal from '@/recycle-bin-components/delete-permanent-success-modal'
+import RestoreSuccessModal from '@/modules/recycle-bin-components/restore-success-modal'
+import DeletePermanentModal from '@/modules/recycle-bin-components/delete-permanent-modal'
+import DeletePermanentSuccessModal from '@/modules/recycle-bin-components/delete-permanent-success-modal'
 
 const ViewDeletedDocPage = () => {
   const [showRestoreModal, setShowRestoreModal] = useState(false)

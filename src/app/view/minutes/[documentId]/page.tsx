@@ -1,6 +1,6 @@
 'use client'
-import MinuteComponent from '@/document-features-components/minute/minute-component'
-import AddMinute from '@/document-features-components/minute/add-minute'
+import MinuteComponent from '@/modules/document-features-components/minute/minute-component'
+import AddMinute from '@/modules/document-features-components/minute/add-minute'
 import { ChevronsRight, FileText, Plus, X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'

@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link"
-import UserAuditTable from "@/audit-log-components/user/user-audit-table"
-import UserAuditLogModal from "@/audit-log-components/user/user-auditlog-modal"
+import UserAuditTable from "@/modules/audit-log-components/user/user-audit-table"
+import UserAuditLogModal from "@/modules/audit-log-components/user/user-auditlog-modal"
 import { useState } from "react";
 
 const UserAuditlogPage = () => {

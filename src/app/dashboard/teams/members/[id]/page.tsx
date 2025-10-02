@@ -7,12 +7,12 @@ import GoBackButton from "@/components/go-back-button";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import TwoFactorModal from "@/components/two-factor-modal";
-import RemoveAccessModal from "@/teams-components/members/remove-access-modal";
-import RestoreAccessModal from "@/teams-components/members/restore-access-modal";
-import DeleteModal from "@/teams-components/members/delete-modal";
-import RevokedMemberSuccessModal from "@/teams-components/members/revoked-member-success-modal";
-import RestoredMemberSuccessModal from "@/teams-components/members/restored-member-success-modal";
-import DeletedMemberSuccessModal from "@/teams-components/members/delete-member-success-modal";
+import RemoveAccessModal from "@/modules/teams-components/members/remove-access-modal";
+import RestoreAccessModal from "@/modules/teams-components/members/restore-access-modal";
+import DeleteModal from "@/modules/teams-components/members/delete-modal";
+import RevokedMemberSuccessModal from "@/modules/teams-components/members/revoked-member-success-modal";
+import RestoredMemberSuccessModal from "@/modules/teams-components/members/restored-member-success-modal";
+import DeletedMemberSuccessModal from "@/modules/teams-components/members/delete-member-success-modal";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 

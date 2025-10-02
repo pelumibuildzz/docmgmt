@@ -1,7 +1,7 @@
 import { Poppins } from "next/font/google";
 import UserInfo from "@/components/user-info";
 import Link from "next/link"
-import MembersTable from "@/teams-components/members/members-table";
+import MembersTable from "@/modules/teams-components/members/members-table";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 

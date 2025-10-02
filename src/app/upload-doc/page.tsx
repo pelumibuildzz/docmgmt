@@ -2,11 +2,11 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import AddWorkflow from "@/upload-edit-components/add-worklow"
-import ReviewDetails from "@/upload-edit-components/review-details"
-import UploadDoc from "@/upload-edit-components/upload-doc"
-import SideProgressBar from "@/upload-edit-components/side-progressbar"
-import UploadSuccessModal from "@/upload-edit-components/upload-success-modal"
+import AddWorkflow from "@/modules/upload-edit-components/add-worklow"
+import ReviewDetails from "@/modules/upload-edit-components/review-details"
+import UploadDoc from "@/modules/upload-edit-components/upload-doc"
+import SideProgressBar from "@/modules/upload-edit-components/side-progressbar"
+import UploadSuccessModal from "@/modules/upload-edit-components/upload-success-modal"
 
 export type UploadData = {
   uploadedDocument: File | null

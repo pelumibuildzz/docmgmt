@@ -1,6 +1,6 @@
 import { Poppins } from "next/font/google";
 import UserInfo from "@/components/user-info";
-import RecycleBinTable from "@/recycle-bin-components/recycle-bin-table";
+import RecycleBinTable from "@/modules/recycle-bin-components/recycle-bin-table";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 

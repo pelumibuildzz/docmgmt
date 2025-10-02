@@ -1,4 +1,4 @@
-import ViewWorkflow from "@/view-workflow-screens/view-workflow"
+import ViewWorkflow from "@/screens/view-workflow-screens/view-workflow"
 
 const ViewEditWorkflowPage = () => {
   return (

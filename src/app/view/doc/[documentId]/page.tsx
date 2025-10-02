@@ -14,7 +14,7 @@ import DeleteDocModal from "@/view-doc-components/delete-doc-modal";
 import DeleteDocSuccessModal from "@/view-doc-components/delete-doc-success-modal";
 import DownloadDocSuccessModal from "@/view-doc-components/download-doc-success-modal";
 import ArchiveDocSuccessModal from "@/view-doc-components/archive-doc-success-modal";
-import SignDocModal from "@/document-features-components/sign-doc/sign-doc-modal";
+import SignDocModal from "@/modules/document-features-components/sign-doc/sign-doc-modal";
 
 const ViewDocumentPage = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

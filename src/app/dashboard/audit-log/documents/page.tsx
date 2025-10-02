@@ -1,7 +1,7 @@
 "use client";
 
-import DocumentAuditTable from "@/audit-log-components/document/document-audit-table";
-import DocumentAuditLogModal from "@/audit-log-components/document/document-auditlog-modal";
+import DocumentAuditTable from "@/modules/audit-log-components/document/document-audit-table";
+import DocumentAuditLogModal from "@/modules/audit-log-components/document/document-auditlog-modal";
 import Link from "next/link";
 import { useState } from "react";
 

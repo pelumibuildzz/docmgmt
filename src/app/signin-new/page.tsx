@@ -3,7 +3,7 @@ import Image from "next/image";
 import {Poppins} from "next/font/google";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import NewPassword from "../../signup-screens/new-password";
+import NewPassword from "../../screens/signup-screens/new-password";
 import PasswordInput from "../../components/password-input";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });

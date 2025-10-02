@@ -4,7 +4,7 @@ import { Poppins } from "next/font/google";
 import UserInfo from "@/components/user-info";
 import { ChevronsRight } from "lucide-react";
 import GoBackButton from "@/components/go-back-button";
-import NewMemberSuccessModal from "@/teams-components/members/new-member-success-modal";
+import NewMemberSuccessModal from "@/modules/teams-components/members/new-member-success-modal";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
