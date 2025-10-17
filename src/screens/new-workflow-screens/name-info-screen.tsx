@@ -5,7 +5,23 @@ import { Poppins } from "next/font/google";
 import UserInfo from "@/components/user-info";
 import GoBackButton from "@/components/go-back-button";
 import { useWorkflow } from "@/context/workflow-context";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+
+// Loading fallback component for Sidenav
+function SidenavFallback() {
+  return (
+    <div className="col-span-2 bg-primary-lighter border-r border-gray-300 min-h-screen">
+      <div className="p-4">
+        <div className="h-8 bg-gray-200 rounded animate-pulse mb-4"></div>
+        <div className="space-y-2">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="h-6 bg-gray-200 rounded animate-pulse"></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
@@ -58,7 +74,9 @@ const NameInfoScreen = () => {
   return (
     <div className="w-full min-h-screen">
         <div className="grid grid-cols-9">
-            <Sidenav />
+            <Suspense fallback={<SidenavFallback />}>
+              <Sidenav />
+            </Suspense>
         <div className="col-span-7">
             <div className={`${poppins.className} bg-white w-full flex flex-col min-h-screen relative pb-40`}>
                 <header className="flex px-10 pt-6 pb-4 w-full justify-between items-center border-b border-gray-300">

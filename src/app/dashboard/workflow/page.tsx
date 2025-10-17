@@ -1,4 +1,4 @@
-import WorkflowTable from "@/workflow-components/workflow-table"
+import WorkflowTable from "@/modules/workflow-components/workflow-table"
 import Link from "next/link"
 
 const WorkflowDashboardPage = () => {

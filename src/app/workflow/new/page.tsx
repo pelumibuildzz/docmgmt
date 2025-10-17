@@ -1,8 +1,8 @@
 'use client'
 
-import AddReviewerScreen from "@/new-workflow-screens/add-reviewer-screen"
-import NameInfoScreen from "@/new-workflow-screens/name-info-screen"
-import PreviewWorkflow from "@/new-workflow-screens/preview-workflow"
+import AddReviewerScreen from "@/screens/new-workflow-screens/add-reviewer-screen"
+import NameInfoScreen from "@/screens/new-workflow-screens/name-info-screen"
+import PreviewWorkflow from "@/screens/new-workflow-screens/preview-workflow"
 import { WorkflowProvider, useWorkflow, WorkflowStep } from "@/context/workflow-context"
 
 const WorkflowContent = () => {

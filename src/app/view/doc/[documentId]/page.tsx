@@ -6,14 +6,14 @@ import DocDropdown from "@/app/view/doc/[documentId]/doc-dropdown";
 import Image from "next/image";
 import PDFRenderer from "@/components/pdf-renderer";
 import TwoFactorModal from "@/components/two-factor-modal";
-import AssignDocModal from "@/view-doc-components/assign-doc-modal";
-import AssignDocSuccessModal from "@/view-doc-components/assign-doc-success-modal";
-import SendDocModal from "@/view-doc-components/send-doc-modal";
-import SendDocSuccessModal from "@/view-doc-components/send-doc-success-modal";
-import DeleteDocModal from "@/view-doc-components/delete-doc-modal";
-import DeleteDocSuccessModal from "@/view-doc-components/delete-doc-success-modal";
-import DownloadDocSuccessModal from "@/view-doc-components/download-doc-success-modal";
-import ArchiveDocSuccessModal from "@/view-doc-components/archive-doc-success-modal";
+import AssignDocModal from "@/modules/view-doc-components/assign-doc-modal";
+import AssignDocSuccessModal from "@/modules/view-doc-components/assign-doc-success-modal";
+import SendDocModal from "@/modules/view-doc-components/send-doc-modal";
+import SendDocSuccessModal from "@/modules/view-doc-components/send-doc-success-modal";
+import DeleteDocModal from "@/modules/view-doc-components/delete-doc-modal";
+import DeleteDocSuccessModal from "@/modules/view-doc-components/delete-doc-success-modal";
+import DownloadDocSuccessModal from "@/modules/view-doc-components/download-doc-success-modal";
+import ArchiveDocSuccessModal from "@/modules/view-doc-components/archive-doc-success-modal";
 import SignDocModal from "@/modules/document-features-components/sign-doc/sign-doc-modal";
 
 const ViewDocumentPage = () => {

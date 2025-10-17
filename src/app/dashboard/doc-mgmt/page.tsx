@@ -1,11 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { useSearchParams, useRouter, usePathname } from "next/navigation"
-import DocGrid from "@/doc-mgmt-components/doc/doc-grid"
-import DocTable from "@/doc-mgmt-components/doc/doc-table"
-import FolderTable from "@/doc-mgmt-components/folder/folder-table"
-import FolderGrid from "@/doc-mgmt-components/folder/folder-grid"
+import DocGrid from "@/modules/doc-mgmt-components/doc/doc-grid"
+import DocTable from "@/modules/doc-mgmt-components/doc/doc-table"
+import FolderTable from "@/modules/doc-mgmt-components/folder/folder-table"
+import FolderGrid from "@/modules/doc-mgmt-components/folder/folder-grid"
 import FilterDropdown from "@/app/dashboard/doc-mgmt/filter-dropdown"
 import ActiveFilters from "@/components/active-filters"
 import { LayoutGrid, List } from "lucide-react"
@@ -14,9 +14,35 @@ import { Document, FilterState, SidenavFilter } from "@/types/document"
 import { mockDocuments } from "@/data/mockDocuments"
 import { filterDocuments, getActiveFiltersDisplay } from "@/utils/documentFilters"
 
-// Queries will be taken from the path and query parameters and used to query the api
-// Result will be passed as a prop into the DocTable or DocGrid component to render
-const Docpage = () => {
+// Loading fallback component for the Suspense boundary
+function DocPageFallback() {
+  return (
+    <main className="w-full py-8 px-6 flex flex-col space-y-5">
+      <div className="flex justify-between items-center">
+        <div className="h-8 bg-gray-200 rounded animate-pulse w-32"></div>
+        <div className="h-10 bg-gray-200 rounded animate-pulse w-40"></div>
+      </div>
+      <div className="flex justify-between">
+        <div className="flex space-x-4">
+          <div className="h-10 bg-gray-200 rounded animate-pulse w-24"></div>
+          <div className="h-10 bg-gray-200 rounded animate-pulse w-24"></div>
+        </div>
+        <div className="flex space-x-4">
+          <div className="h-10 bg-gray-200 rounded animate-pulse w-20"></div>
+          <div className="h-10 bg-gray-200 rounded animate-pulse w-20"></div>
+        </div>
+      </div>
+      <div className="space-y-4">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <div key={i} className="h-16 bg-gray-200 rounded animate-pulse"></div>
+        ))}
+      </div>
+    </main>
+  )
+}
+
+// Component that uses useSearchParams - needs to be wrapped in Suspense
+const DocpageContent = () => {
   const [contentType, setContentType] = useState<'document' | 'file'>('document')
   const [viewType, setViewType] = useState<'table' | 'grid'>('table')
   const [documents] = useState<Document[]>(mockDocuments)
@@ -204,6 +230,15 @@ const Docpage = () => {
             viewType === 'table' ? <FolderTable /> : <FolderGrid />
         )}
     </main>
+  )
+}
+
+// Main page component with Suspense boundary
+const Docpage = () => {
+  return (
+    <Suspense fallback={<DocPageFallback />}>
+      <DocpageContent />
+    </Suspense>
   )
 }
 

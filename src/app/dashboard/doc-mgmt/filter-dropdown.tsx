@@ -9,7 +9,7 @@ interface FilterDropdownProps {
 
 const FilterDropdown = ({ onFilterChange }: FilterDropdownProps) => {
   const [isFilterDropdownOpen, setIsFilterDropdownOpen] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
+  const [, setSelectedFilter] = useState<string | null>(null);
   const [currentView, setCurrentView] = useState<string>('main'); // 'main' or filter type
 
   const filterOptions = [
@@ -18,7 +18,6 @@ const FilterDropdown = ({ onFilterChange }: FilterDropdownProps) => {
     { value: "date-received", label: "Date Received", icon: CalendarCheck },
     { value: "status", label: "Status", icon: GitPullRequestArrow }
   ];
-  selectedFilter;
 
   const subMenuOptions = {
     priority: [
